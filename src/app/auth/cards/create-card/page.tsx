@@ -1,7 +1,6 @@
 import React from "react";
+import CreateCardForm from "@/components/CreateCardForm";
 
-const CreateCard = () => {
-  return <div>CreateCard</div>;
-};
+const CreateCard = () => <CreateCardForm />;
 
 export default CreateCard;
