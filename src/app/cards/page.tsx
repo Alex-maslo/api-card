@@ -1,7 +1,7 @@
 import React from "react";
 import { getAllCards } from "@/services/getAllCards";
 import { ICard } from "@/models/ICard";
-import Card from "@/components/Card";
+import CardTwo from "@/components/Card-2";
 
 const CardsPage = async () => {
   const cards: ICard[] = await getAllCards();
@@ -13,7 +13,7 @@ const CardsPage = async () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 p-2">
       {cards.map((card) => (
-        <Card key={card.id} card={card} />
+        <CardTwo key={card.id} card={card} />
       ))}
     </div>
   );
