@@ -1,27 +1,25 @@
 "use client";
 
 import React from "react";
-import { deleteCard } from "@/service-actions/api.service";
 import { ICard } from "@/models/ICard";
+import { deleteCard } from "@/services/deleteCard";
 
-interface Props {
-  card: ICard;
-}
-
-const Card = ({ card }: Props) => {
-  const handleButtonClick = async () => {
-    await deleteCard(card.id); // Передаємо ID картки у функцію
-  };
+const Card = ({ card }: { card: ICard }) => {
   return (
-    <div className="card bg-primary text-primary-content">
-      <div className="card-body">
-        <h2 className="card-title">{card.doctor}</h2>
-        <p>{card.id}</p>
-        <div className="card-actions justify-end">
-          <button onClick={handleButtonClick} className="btn">
-            Buy Now
-          </button>
-        </div>
+    <div>
+      <div
+        className="grid grid-cols-2 gap-3 border border-orange-400 p-3"
+        key={card.id}
+      >
+        <h2>
+          {card.id} - {card.doctor}
+        </h2>
+        <button
+          onClick={() => deleteCard(card.id)}
+          className="btn btn-primary "
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

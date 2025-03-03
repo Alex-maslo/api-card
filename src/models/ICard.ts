@@ -1,9 +1,9 @@
 export interface ICard {
-  title: string;
-  description: string;
   doctor: string;
-  bp: string;
-  age: number;
-  weight: number;
+  purposeVisit: string;
+  visitDescription: string;
+  priority: string;
+  patientName: string;
+  age: string;
   id: number;
 }
