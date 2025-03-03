@@ -5,18 +5,17 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const axiosInstance = axios.create({
-  baseURL: "https://dummyjson.com/auth",
-  timeout: 5000,
-  withCredentials: true,
+  baseURL: "https://ajax.test-danit.com/api/v2/cards",
 });
 
 export const getUserTokens = async () => {
   const { data } = await axiosInstance.post("/login", {
-    username: "emilys",
-    password: "emilyspass",
-    expiresInMins: 30,
+    email: "testuser@gmail.com",
+    password: "12345678",
   });
 
-  (await cookies()).set("user", JSON.stringify(data));
-  redirect("/recipes");
+  const cookieStore = await cookies();
+  cookieStore.set("token", data);
+
+  redirect("/cards");
 };
